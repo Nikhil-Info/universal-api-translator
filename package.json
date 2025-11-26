@@ -1,0 +1,20 @@
+{
+    "name": "universal-api-translator-root",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+        "dev": "pnpm --filter frontend dev",
+        "build": "pnpm --filter frontend build",
+        "start": "pnpm --filter frontend start",
+        "lint": "pnpm --filter frontend lint",
+        "backend:dev": "cd apps/backend && uvicorn app.main:app --reload",
+        "backend:build": "docker-compose build backend"
+    },
+    "devDependencies": {
+        "turbo": "latest"
+    },
+    "packageManager": "pnpm@9.0.0",
+    "engines": {
+        "node": ">=18"
+    }
+}

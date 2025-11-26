@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+sqlalchemy
+psycopg2-binary
+redis
+celery
+python-dotenv
+pydantic
+pydantic-settings
+httpx
+openai
+anthropic
+stripe
+clerk-http-client
