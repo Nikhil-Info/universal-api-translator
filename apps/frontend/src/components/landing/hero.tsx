@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 import { FingerprintIcon } from "lucide-react"
+import Image from "next/image"
 
 export function Hero() {
     return (
@@ -21,20 +22,29 @@ export function Hero() {
                         transition={{ delay: 0.1, duration: 0.5 }}
                     >
                         <div className="flex items-center">
-                            <img
+                            <Image
                                 className="size-6 md:size-7 rounded-full border-2 border-background"
                                 src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=50"
                                 alt="Developer 1"
+                                width={28}
+                                height={28}
+                                loading="eager"
                             />
-                            <img
+                            <Image
                                 className="size-6 md:size-7 rounded-full border-2 border-background -translate-x-2"
                                 src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=50"
                                 alt="Developer 2"
+                                width={28}
+                                height={28}
+                                loading="eager"
                             />
-                            <img
+                            <Image
                                 className="size-6 md:size-7 rounded-full border-2 border-background -translate-x-4"
                                 src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=50&h=50&auto=format&fit=crop"
                                 alt="Developer 3"
+                                width={28}
+                                height={28}
+                                loading="eager"
                             />
                         </div>
                         <p className="-translate-x-2 font-medium">
