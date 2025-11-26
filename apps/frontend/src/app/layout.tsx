@@ -11,21 +11,30 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
+  preload: true,
+  fallback: ["system-ui", "arial"],
 });
 
 const geistMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-geist-mono",
   display: "swap",
+  preload: true,
+  fallback: ["monospace"],
 });
 
 export const viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
+  maximumScale: 5,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
+  ],
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://universal-api-translator.com'),
   title: {
     default: "Universal API Translator - AI-Powered API Conversion & SDK Generation",
     template: "%s | Universal API Translator"
@@ -53,7 +62,6 @@ export const metadata: Metadata = {
   authors: [{ name: "Universal API Translator Team" }],
   creator: "Universal API Translator",
   publisher: "Universal API Translator",
-  metadataBase: new URL('https://universal-api-translator.com'),
   alternates: {
     canonical: '/',
   },
@@ -95,6 +103,11 @@ export const metadata: Metadata = {
   category: 'technology',
   verification: {
     google: 'your-google-verification-code',
+  },
+  other: {
+    'mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-status-bar-style': 'black-translucent',
   },
 };
 

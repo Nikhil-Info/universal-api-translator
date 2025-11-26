@@ -30,7 +30,7 @@ export function SiteFooter() {
                     <div className="flex flex-col gap-4 max-w-sm">
                         <Link href="/" className="flex items-center space-x-2">
                             <Image
-                                src="/logo/api-logo.png"
+                                src="/logo/api-logo_1.png"
                                 alt="Universal API Translator Logo"
                                 width={32}
                                 height={32}
@@ -43,7 +43,7 @@ export function SiteFooter() {
                             OpenAPI, GraphQL, SOAP, and more.
                         </p>
                     </div>
-                    <div className="grid grid-cols-2 gap-10 sm:grid-cols-3">
+                    <div className="grid grid-cols-2 gap-10 sm:grid-cols-4">
                         {footerLinks.map((column) => (
                             <div key={column.title} className="flex flex-col gap-2">
                                 <h3 className="font-semibold">{column.title}</h3>
@@ -58,16 +58,6 @@ export function SiteFooter() {
                                 </ul>
                             </div>
                         ))}
-                        <div className="flex flex-col gap-2">
-                            <h3 className="font-semibold">Resources</h3>
-                            <ul className="flex flex-col gap-2 text-sm text-muted-foreground">
-                                <li>
-                                    <Link href="/changelog" className="hover:underline hover:text-foreground">
-                                        Changelog
-                                    </Link>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
 

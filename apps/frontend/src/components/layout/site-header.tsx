@@ -82,7 +82,7 @@ export function SiteHeader() {
                         <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
                             {/* Replace with your custom logo */}
                             <Image
-                                src="/logo/api-logo.png" // Update this path to your logo
+                                src="/logo/api-logo_1.png" // Update this path to your logo
                                 alt="Logo"
                                 width={32}
                                 height={32}
