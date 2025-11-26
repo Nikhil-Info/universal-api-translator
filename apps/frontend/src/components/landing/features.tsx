@@ -35,8 +35,8 @@ const features = [
 
 export function Features() {
     return (
-        <section id="features" className="py-24 sm:py-32">
-            <div className="container">
+        <section id="features" className="py-24 bg-muted/30">
+            <div className="container px-6">
                 <div className="mx-auto max-w-2xl text-center">
                     <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
                         Everything you need to bridge API gaps
@@ -47,21 +47,28 @@ export function Features() {
                     </p>
                 </div>
                 <div className="mx-auto mt-16 max-w-7xl sm:mt-20 lg:mt-24">
-                    <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-3 lg:gap-y-16">
+                    <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
                         {features.map((feature) => (
-                            <div key={feature.name} className="relative pl-16">
-                                <dt className="text-base font-semibold leading-7">
-                                    <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+                            <div
+                                key={feature.name}
+                                className="relative p-6 rounded-lg border border-border bg-card hover:shadow-lg transition-shadow duration-300"
+                            >
+                                <div className="flex items-start gap-4">
+                                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground">
                                         <feature.icon className="h-6 w-6" aria-hidden="true" />
                                     </div>
-                                    {feature.name}
-                                </dt>
-                                <dd className="mt-2 text-base leading-7 text-muted-foreground">
-                                    {feature.description}
-                                </dd>
+                                    <div className="flex-1">
+                                        <h3 className="text-lg font-semibold mb-2">
+                                            {feature.name}
+                                        </h3>
+                                        <p className="text-sm text-muted-foreground leading-relaxed">
+                                            {feature.description}
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         ))}
-                    </dl>
+                    </div>
                 </div>
             </div>
         </section>

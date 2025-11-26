@@ -16,11 +16,19 @@ export const links = {
     testimonials: "/#testimonials",
     blog: "/blog",
     changelog: "/changelog",
+    cookies: "/cookies",
+    dmca: "/dmca",
+    security: "/security",
+    documentation: "/documentation",
+    community: "/community",
+    validator: "/validator",
+    team: "/team",
+    help: "/help",
 }
 
 export const navLinks = [
     { name: "Features", href: links.features },
-    { name: "Pricing", href: links.pricing },
+    { name: "Playground", href: "/playground" },
     { name: "About", href: links.about },
     { name: "Docs", href: links.docs },
 ]
@@ -30,8 +38,9 @@ export const footerLinks = [
         title: "Product",
         items: [
             { name: "Features", href: links.features },
-            { name: "Pricing", href: links.pricing },
             { name: "Dashboard", href: links.dashboard },
+            { name: "Playground", href: "/playground" },
+            { name: "API Validator", href: links.validator },
         ],
     },
     {
@@ -40,6 +49,7 @@ export const footerLinks = [
             { name: "About", href: links.about },
             { name: "Contact", href: links.contact },
             { name: "Blog", href: links.blog },
+            { name: "Team", href: links.team },
         ],
     },
     {
@@ -47,6 +57,18 @@ export const footerLinks = [
         items: [
             { name: "Terms", href: links.terms },
             { name: "Privacy", href: links.privacy },
+            { name: "Cookie Policy", href: links.cookies },
+            { name: "DMCA", href: links.dmca },
+            { name: "Security", href: links.security },
+        ],
+    },
+    {
+        title: "Resources",
+        items: [
+            { name: "Documentation", href: links.documentation },
+            { name: "Community", href: links.community },
+            { name: "Changelog", href: links.changelog },
+            { name: "Help Center", href: links.help },
         ],
     },
 ]

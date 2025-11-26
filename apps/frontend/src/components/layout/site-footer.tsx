@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { footerLinks, links } from "@/lib/links"
 import { ThemeSwitcher } from "@/components/theme-switcher"
 import { VisitorCounter } from "@/components/visitor-counter"
@@ -24,13 +25,17 @@ export function SiteFooter() {
                 }}
             />
 
-            <div className="container relative z-10 flex flex-col gap-8 py-8 md:py-12">
+            <div className="container relative z-10 flex flex-col gap-8 py-8 md:py-16 px-4 md:px-6">
                 <div className="flex flex-col gap-6 md:flex-row md:justify-between">
-                    <div className="flex flex-col gap-4">
+                    <div className="flex flex-col gap-4 max-w-sm">
                         <Link href="/" className="flex items-center space-x-2">
-                            <div className="h-8 w-8 rounded bg-primary flex items-center justify-center text-primary-foreground font-bold text-sm">
-                                UAT
-                            </div>
+                            <Image
+                                src="/logo/api-logo_1.png"
+                                alt="Universal API Translator Logo"
+                                width={32}
+                                height={32}
+                                className="h-8 w-auto"
+                            />
                             <span className="font-bold">Universal API Translator</span>
                         </Link>
                         <p className="text-sm text-muted-foreground max-w-xs">
@@ -38,7 +43,7 @@ export function SiteFooter() {
                             OpenAPI, GraphQL, SOAP, and more.
                         </p>
                     </div>
-                    <div className="grid grid-cols-2 gap-10 sm:grid-cols-3">
+                    <div className="grid grid-cols-2 gap-10 sm:grid-cols-4">
                         {footerLinks.map((column) => (
                             <div key={column.title} className="flex flex-col gap-2">
                                 <h3 className="font-semibold">{column.title}</h3>
@@ -53,16 +58,6 @@ export function SiteFooter() {
                                 </ul>
                             </div>
                         ))}
-                        <div className="flex flex-col gap-2">
-                            <h3 className="font-semibold">Resources</h3>
-                            <ul className="flex flex-col gap-2 text-sm text-muted-foreground">
-                                <li>
-                                    <Link href="/changelog" className="hover:underline hover:text-foreground">
-                                        Changelog
-                                    </Link>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
 

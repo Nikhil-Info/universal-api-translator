@@ -1,107 +1,108 @@
-import Marquee from "@/components/ui/marquee"
-import { cn } from "@/lib/utils"
+"use client"
 
-const reviews = [
+import { TestimonialsColumn } from "@/components/ui/testimonials-column"
+import { motion } from "framer-motion"
+
+const testimonials = [
     {
-        name: "Jack",
-        username: "@jack",
-        body: "I've never seen anything like this before. It's absolutely mind-blowing.",
-        img: "https://avatar.vercel.sh/jack",
+        text: "Universal API Translator saved us weeks of development time. The AI-powered conversion is incredibly accurate.",
+        image: "https://randomuser.me/api/portraits/women/1.jpg",
+        name: "Sarah Chen",
+        role: "Lead Developer at TechCorp",
     },
     {
-        name: "Jill",
-        username: "@jill",
-        body: "I don't know what to say. I'm speechless. This is amazing.",
-        img: "https://avatar.vercel.sh/jill",
+        text: "Converting our REST API to GraphQL was seamless. The generated schema was production-ready.",
+        image: "https://randomuser.me/api/portraits/men/2.jpg",
+        name: "Michael Rodriguez",
+        role: "CTO at StartupXYZ",
     },
     {
-        name: "John",
-        username: "@john",
-        body: "I'm at a loss for words. This is amazing. I love it.",
-        img: "https://avatar.vercel.sh/john",
+        text: "The SDK generation feature is a game-changer. We now support 5 languages with zero manual work.",
+        image: "https://randomuser.me/api/portraits/women/3.jpg",
+        name: "Emily Watson",
+        role: "Engineering Manager",
     },
     {
-        name: "Jane",
-        username: "@jane",
-        body: "I'm at a loss for words. This is amazing. I love it.",
-        img: "https://avatar.vercel.sh/jane",
+        text: "Type safety across all our API translations gives us confidence to ship faster.",
+        image: "https://randomuser.me/api/portraits/men/4.jpg",
+        name: "David Kim",
+        role: "Senior Backend Engineer",
     },
     {
-        name: "Jenny",
-        username: "@jenny",
-        body: "I'm at a loss for words. This is amazing. I love it.",
-        img: "https://avatar.vercel.sh/jenny",
+        text: "The CLI integration fits perfectly into our CI/CD pipeline. Automated API conversions on every deploy.",
+        image: "https://randomuser.me/api/portraits/women/5.jpg",
+        name: "Jessica Martinez",
+        role: "DevOps Lead",
     },
     {
-        name: "James",
-        username: "@james",
-        body: "I'm at a loss for words. This is amazing. I love it.",
-        img: "https://avatar.vercel.sh/james",
+        text: "Migrating from SOAP to REST was painless. The tool understood our complex schemas perfectly.",
+        image: "https://randomuser.me/api/portraits/women/6.jpg",
+        name: "Aliza Khan",
+        role: "Solutions Architect",
+    },
+    {
+        text: "The documentation generation is excellent. Our API docs are now always up-to-date automatically.",
+        image: "https://randomuser.me/api/portraits/men/7.jpg",
+        name: "Robert Taylor",
+        role: "Technical Writer",
+    },
+    {
+        text: "We migrated 50+ endpoints in a single afternoon. The batch processing is incredibly powerful.",
+        image: "https://randomuser.me/api/portraits/women/8.jpg",
+        name: "Lisa Anderson",
+        role: "API Architect",
+    },
+    {
+        text: "The gRPC to REST conversion maintained all our business logic perfectly. Impressive AI capabilities.",
+        image: "https://randomuser.me/api/portraits/men/9.jpg",
+        name: "James Wilson",
+        role: "Platform Engineer",
     },
 ]
 
-const firstRow = reviews.slice(0, reviews.length / 2)
-const secondRow = reviews.slice(reviews.length / 2)
-
-const ReviewCard = ({
-    img,
-    name,
-    username,
-    body,
-}: {
-    img: string
-    name: string
-    username: string
-    body: string
-}) => {
-    return (
-        <figure
-            className={cn(
-                "relative w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
-                // light styles
-                "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
-                // dark styles
-                "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]",
-            )}
-        >
-            <div className="flex flex-row items-center gap-2">
-                <img className="rounded-full" width="32" height="32" alt="" src={img} />
-                <div className="flex flex-col">
-                    <figcaption className="text-sm font-medium dark:text-white">
-                        {name}
-                    </figcaption>
-                    <p className="text-xs font-medium dark:text-white/40">{username}</p>
-                </div>
-            </div>
-            <blockquote className="mt-2 text-sm">{body}</blockquote>
-        </figure>
-    )
-}
+const firstColumn = testimonials.slice(0, 3)
+const secondColumn = testimonials.slice(3, 6)
+const thirdColumn = testimonials.slice(6, 9)
 
 export function Testimonials() {
     return (
-        <section id="testimonials" className="py-24 bg-gray-50 dark:bg-gray-900/50">
-            <div className="container mb-16 text-center">
-                <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                    Loved by developers worldwide
-                </h2>
-                <p className="mt-4 text-lg text-muted-foreground">
-                    Join thousands of engineers who trust us with their API transformations.
-                </p>
-            </div>
-            <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
-                <Marquee pauseOnHover className="[--duration:20s]">
-                    {firstRow.map((review) => (
-                        <ReviewCard key={review.username} {...review} />
-                    ))}
-                </Marquee>
-                <Marquee reverse pauseOnHover className="[--duration:20s]">
-                    {secondRow.map((review) => (
-                        <ReviewCard key={review.username} {...review} />
-                    ))}
-                </Marquee>
-                <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white dark:from-background"></div>
-                <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white dark:from-background"></div>
+        <section className="bg-background my-20 relative">
+            <div className="container z-10 mx-auto">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                    viewport={{ once: true }}
+                    className="flex flex-col items-center justify-center max-w-[540px] mx-auto"
+                >
+                    {/* <div className="flex justify-center">
+                        <div className="border border-border py-1 px-4 rounded-lg text-sm">
+                            Testimonials
+                        </div>
+                    </div> */}
+
+                    <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tighter mt-5 text-center">
+                        What our users say
+                    </h2>
+                    <p className="text-center mt-5 text-muted-foreground">
+                        See what our customers have to say about us.
+                    </p>
+                </motion.div>
+
+                <div className="flex justify-center gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] max-h-[600px] overflow-hidden">
+                    <TestimonialsColumn testimonials={firstColumn} duration={15} />
+                    <TestimonialsColumn
+                        testimonials={secondColumn}
+                        className="hidden md:block"
+                        duration={19}
+                        reverse={true}
+                    />
+                    <TestimonialsColumn
+                        testimonials={thirdColumn}
+                        className="hidden lg:block"
+                        duration={17}
+                    />
+                </div>
             </div>
         </section>
     )

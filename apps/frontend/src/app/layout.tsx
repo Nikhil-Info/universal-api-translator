@@ -11,44 +11,83 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
+  preload: true,
+  fallback: ["system-ui", "arial"],
 });
 
 const geistMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-geist-mono",
   display: "swap",
+  preload: true,
+  fallback: ["monospace"],
 });
 
 export const viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
+  maximumScale: 5,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
+  ],
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://universal-api-translator.com'),
   title: {
-    default: "Universal API Translator - AI-Powered API Conversion",
+    default: "Universal API Translator - AI-Powered API Conversion & SDK Generation",
     template: "%s | Universal API Translator"
   },
-  description: "Convert between OpenAPI, GraphQL, SOAP, gRPC and more with AI-powered intelligence. Generate SDKs, validate specifications, and streamline your API workflow.",
-  keywords: ["API", "translator", "converter", "OpenAPI", "GraphQL", "SOAP", "gRPC", "SDK generation", "API documentation", "REST API", "API design"],
+  description: "Transform APIs seamlessly with AI. Convert between OpenAPI, GraphQL, SOAP, and gRPC. Auto-generate SDKs in Node, Python, Go, Java, C#. Type-safe, standards-compliant, CI/CD ready.",
+  applicationName: "Universal API Translator",
+  keywords: [
+    "API translator",
+    "API converter",
+    "OpenAPI to GraphQL",
+    "REST to gRPC",
+    "SOAP to REST",
+    "SDK generation",
+    "API documentation",
+    "GraphQL schema",
+    "gRPC protocol buffers",
+    "AI API conversion",
+    "TypeScript SDK",
+    "Python SDK",
+    "API migration",
+    "WSDL converter",
+    "OpenAPI 3.1",
+    "API automation"
+  ],
   authors: [{ name: "Universal API Translator Team" }],
   creator: "Universal API Translator",
   publisher: "Universal API Translator",
-  metadataBase: new URL('https://universal-api-translator.com'),
+  alternates: {
+    canonical: '/',
+  },
+  manifest: '/manifest.json',
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://universal-api-translator.com",
     title: "Universal API Translator - AI-Powered API Conversion",
-    description: "Convert between OpenAPI, GraphQL, SOAP, gRPC and more with AI-powered intelligence.",
+    description: "Transform APIs seamlessly with AI. Convert between OpenAPI, GraphQL, SOAP, and gRPC. Auto-generate SDKs in multiple languages.",
     siteName: "Universal API Translator",
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Universal API Translator - AI-Powered API Conversion',
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Universal API Translator",
-    description: "AI-powered API conversion and SDK generation",
+    title: "Universal API Translator - AI-Powered API Conversion",
+    description: "Transform APIs seamlessly. Convert between OpenAPI, GraphQL, SOAP, gRPC. Auto-generate SDKs.",
     creator: "@universalapi",
+    images: ['/og-image.png'],
   },
   robots: {
     index: true,
@@ -60,6 +99,15 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
+  },
+  category: 'technology',
+  verification: {
+    google: 'your-google-verification-code',
+  },
+  other: {
+    'mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-status-bar-style': 'black-translucent',
   },
 };
 

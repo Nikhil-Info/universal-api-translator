@@ -1,43 +1,125 @@
-import Link from "next/link"
+"use client"
+
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Zap } from "lucide-react"
+import { motion } from "framer-motion"
+import { FingerprintIcon } from "lucide-react"
+import Image from "next/image"
 
 export function Hero() {
     return (
-        <section className="relative overflow-hidden pt-16 md:pt-20 lg:pt-32">
-            <div className="container relative z-10 flex flex-col items-center text-center">
-                <div className="mb-8 inline-flex items-center rounded-full border bg-background/50 px-3 py-1 text-sm font-medium backdrop-blur-sm">
-                    <span className="flex h-2 w-2 rounded-full bg-blue-500 mr-2"></span>
-                    <span className="text-muted-foreground">v1.0 Public Beta is live</span>
-                </div>
-                <h1 className="mb-6 text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70">
-                    Translate Any API <br className="hidden sm:block" />
-                    <span className="bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent">
-                        To Any Format
-                    </span>
-                </h1>
-                <p className="mb-8 max-w-[800px] text-lg text-muted-foreground sm:text-xl">
-                    The universal translator for developers. Convert OpenAPI, GraphQL, SOAP, and gRPC instantly.
-                    Generate production-ready SDKs in seconds using advanced AI.
-                </p>
-                <div className="flex flex-col gap-4 sm:flex-row">
-                    <Link href="/dashboard">
-                        <Button size="lg" className="h-12 px-8 text-base">
-                            Start Translating <ArrowRight className="ml-2 h-4 w-4" />
-                        </Button>
-                    </Link>
-                    <Link href="/docs">
-                        <Button variant="outline" size="lg" className="h-12 px-8 text-base">
-                            Read Documentation
-                        </Button>
-                    </Link>
-                </div>
+        <main className="relative container px-2 mx-auto">
+            <section className="w-full py-12 md:py-24 lg:py-32 xl:py-36">
+                <motion.div
+                    className="flex flex-col items-center space-y-6 text-center"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                >
+                    <motion.div
+                        className="flex flex-wrap items-center justify-center p-1 rounded-full bg-primary/10 backdrop-blur border border-primary/40 text-sm mb-4"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.1, duration: 0.5 }}
+                    >
+                        <div className="flex items-center">
+                            <Image
+                                className="size-6 md:size-7 rounded-full border-2 border-background"
+                                src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=50"
+                                alt="Developer 1"
+                                width={28}
+                                height={28}
+                                loading="eager"
+                            />
+                            <Image
+                                className="size-6 md:size-7 rounded-full border-2 border-background -translate-x-2"
+                                src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=50"
+                                alt="Developer 2"
+                                width={28}
+                                height={28}
+                                loading="eager"
+                            />
+                            <Image
+                                className="size-6 md:size-7 rounded-full border-2 border-background -translate-x-4"
+                                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=50&h=50&auto=format&fit=crop"
+                                alt="Developer 3"
+                                width={28}
+                                height={28}
+                                loading="eager"
+                            />
+                        </div>
+                        <p className="-translate-x-2 font-medium">
+                            Join 10,000+ developers using our API translator
+                        </p>
+                    </motion.div>
 
-                {/* Abstract background elements */}
-                <div className="absolute top-1/2 left-1/2 -z-10 h-[1000px] w-[1000px] -translate-x-1/2 -translate-y-1/2 opacity-20">
-                    <div className="absolute inset-0 bg-gradient-to-tr from-blue-500 to-violet-500 blur-[100px] rounded-full" />
-                </div>
-            </div>
-        </section>
+                    <motion.h1
+                        className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl/none"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2, duration: 0.5 }}
+                    >
+                        API Translation, Simplified
+                    </motion.h1>
+                    <motion.p
+                        className="mx-auto max-w-xl text-md sm:text-2xl text-muted-foreground"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.3, duration: 0.5 }}
+                    >
+                        Convert between{" "}
+                        <span className="font-semibold text-foreground">
+                            OpenAPI, GraphQL, SOAP, and gRPC
+                        </span>{" "}
+                        with{" "}
+                        <span className="font-semibold text-foreground">AI-powered intelligence</span>
+                    </motion.p>
+                    <motion.div
+                        className="flex flex-col sm:flex-row gap-4"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.4, duration: 0.5 }}
+                    >
+                        <Button className="rounded-xl bg-foreground text-background hover:bg-foreground/90">
+                            Get Started
+                            <div className="ml-2 space-x-1 hidden sm:inline-flex">
+                                <FingerprintIcon className="w-5 h-5" />
+                            </div>
+                        </Button>
+                        <Button variant="outline" className="rounded-xl">
+                            <div className="mr-2 space-x-1 hidden sm:inline-flex">
+                                <span className="w-5 h-5 text-xs rounded-sm border">⌘</span>
+                                <span className="w-5 h-5 text-xs rounded-sm border">K</span>
+                            </div>
+                            View Docs
+                        </Button>
+                    </motion.div>
+
+                    <motion.div
+                        className="flex flex-col items-center space-y-3 pb-12"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.5, duration: 0.5 }}
+                    >
+                        <div className="flex items-center space-x-4 text-sm">
+                            <span className="text-primary hover:text-primary/80 transition-colors">
+                                OpenAPI
+                            </span>
+                            <span className="text-muted-foreground/60">
+                                GraphQL
+                            </span>
+                            <span className="text-primary hover:text-primary/80 transition-colors">
+                                gRPC
+                            </span>
+                            <span className="text-muted-foreground/60">
+                                SOAP
+                            </span>
+                        </div>
+                        <p className="text-sm text-muted-foreground/60">
+                            AI-powered API conversion and SDK generation
+                        </p>
+                    </motion.div>
+                </motion.div>
+            </section>
+        </main>
     )
 }
