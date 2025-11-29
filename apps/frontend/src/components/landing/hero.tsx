@@ -5,9 +5,18 @@ import { motion } from "framer-motion"
 import { FingerprintIcon } from "lucide-react"
 import Image from "next/image"
 
+import Link from "next/link"
+
 export function Hero() {
     return (
         <main className="relative container px-2 mx-auto">
+            <svg className='absolute inset-0 -z-10 size-full max-md:hidden' width='1440' height='720' viewBox='0 0 1440 720' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                <path stroke='var(--color-gray-200)' strokeOpacity='.5' d='M-15.227 702.342H1439.7' />
+                <circle cx='711.819' cy='372.562' r='308.334' stroke='var(--color-gray-200)' strokeOpacity='.5' />
+                <circle cx='16.942' cy='20.834' r='308.334' stroke='var(--color-gray-200)' strokeOpacity='.5' />
+                <path stroke='var(--color-gray-200)' strokeOpacity='.5' d='M-15.227 573.66H1439.7M-15.227 164.029H1439.7' />
+                <circle cx='782.595' cy='411.166' r='308.334' stroke='var(--color-gray-200)' strokeOpacity='.5' />
+            </svg>
             <section className="w-full py-12 md:py-24 lg:py-32 xl:py-36">
                 <motion.div
                     className="flex flex-col items-center space-y-6 text-center"
@@ -48,7 +57,7 @@ export function Hero() {
                             />
                         </div>
                         <p className="-translate-x-2 font-medium">
-                            Join 10,000+ developers using our API translator
+                            Join 10,000+ developers using Translatio
                         </p>
                     </motion.div>
 
@@ -79,19 +88,23 @@ export function Hero() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.4, duration: 0.5 }}
                     >
-                        <Button className="rounded-xl bg-foreground text-background hover:bg-foreground/90">
-                            Get Started
-                            <div className="ml-2 space-x-1 hidden sm:inline-flex">
-                                <FingerprintIcon className="w-5 h-5" />
-                            </div>
-                        </Button>
-                        <Button variant="outline" className="rounded-xl">
-                            <div className="mr-2 space-x-1 hidden sm:inline-flex">
-                                <span className="w-5 h-5 text-xs rounded-sm border">⌘</span>
-                                <span className="w-5 h-5 text-xs rounded-sm border">K</span>
-                            </div>
-                            View Docs
-                        </Button>
+                        <Link href="/translate">
+                            <Button className="rounded-xl bg-foreground text-background hover:bg-foreground/90">
+                                Get Started
+                                <div className="ml-2 space-x-1 hidden sm:inline-flex">
+                                    <FingerprintIcon className="w-5 h-5" />
+                                </div>
+                            </Button>
+                        </Link>
+                        <Link href="/documentation">
+                            <Button variant="outline" className="rounded-xl">
+                                <div className="mr-2 space-x-1 hidden sm:inline-flex">
+                                    <span className="w-5 h-5 text-xs rounded-sm border">⌘</span>
+                                    <span className="w-5 h-5 text-xs rounded-sm border">K</span>
+                                </div>
+                                View Docs
+                            </Button>
+                        </Link>
                     </motion.div>
 
                     <motion.div

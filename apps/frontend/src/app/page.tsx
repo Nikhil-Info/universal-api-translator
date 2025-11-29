@@ -6,17 +6,17 @@ import CombinedFeaturedSection from "@/components/landing/featured-section/combi
 import { StructuredData, organizationData, websiteData } from "@/components/seo/structured-data"
 
 export const metadata: Metadata = {
-  title: "Universal API Translator - AI-Powered API Conversion & SDK Generation",
-  description: "Transform APIs seamlessly with AI. Convert between OpenAPI, GraphQL, SOAP, and gRPC. Auto-generate SDKs in Node, Python, Go, Java, C#. Type-safe, standards-compliant, CI/CD ready.",
+  title: "Translatio - AI-Powered API Conversion & SDK Generation",
+  description: "Translatio: Transform APIs seamlessly with AI. Convert between OpenAPI, GraphQL, SOAP, and gRPC. Auto-generate SDKs in Node, Python, Go, Java, C#. Type-safe, standards-compliant, CI/CD ready.",
   openGraph: {
-    title: "Universal API Translator - AI-Powered API Conversion",
-    description: "Transform APIs seamlessly with AI. Convert between OpenAPI, GraphQL, SOAP, and gRPC.",
+    title: "Translatio - AI-Powered API Conversion",
+    description: "Translatio: Transform APIs seamlessly with AI. Convert between OpenAPI, GraphQL, SOAP, and gRPC.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Universal API Translator - AI-Powered API Conversion",
-    description: "Transform APIs seamlessly. Convert between OpenAPI, GraphQL, SOAP, gRPC.",
+    title: "Translatio - AI-Powered API Conversion",
+    description: "Translatio: Transform APIs seamlessly. Convert between OpenAPI, GraphQL, SOAP, gRPC.",
   },
 }
 

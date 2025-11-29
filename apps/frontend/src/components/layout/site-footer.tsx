@@ -1,8 +1,12 @@
+"use client"
+
 import Link from "next/link"
 import Image from "next/image"
 import { footerLinks, links } from "@/lib/links"
 import { ThemeSwitcher } from "@/components/theme-switcher"
 import { VisitorCounter } from "@/components/visitor-counter"
+import { siteConfig } from "@/config/site"
+
 
 export function SiteFooter() {
     return (
@@ -30,17 +34,16 @@ export function SiteFooter() {
                     <div className="flex flex-col gap-4 max-w-sm">
                         <Link href="/" className="flex items-center space-x-2">
                             <Image
-                                src="/logo/api-logo_1.png"
-                                alt="Universal API Translator Logo"
+                                src={siteConfig.logo.main}
+                                alt={siteConfig.name}
                                 width={32}
                                 height={32}
                                 className="h-8 w-auto"
                             />
-                            <span className="font-bold">Universal API Translator</span>
+                            <span className="font-bold">{siteConfig.name}</span>
                         </Link>
                         <p className="text-sm text-muted-foreground max-w-xs">
-                            Translate any API format to any other format instantly using AI.
-                            OpenAPI, GraphQL, SOAP, and more.
+                            {siteConfig.description}
                         </p>
                     </div>
                     <div className="grid grid-cols-2 gap-10 sm:grid-cols-4">
@@ -61,19 +64,22 @@ export function SiteFooter() {
                     </div>
                 </div>
 
-                {/* Bottom Bar: Visitor Counter (Left), Theme Switcher (Center), Year (Right) */}
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 items-center border-t pt-8">
-                    <div className="flex justify-center sm:justify-start order-2 sm:order-1">
+                {/* Bottom Bar: Theme Switcher (Center), Visitor Counter & Copyright (Sides) */}
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-t pt-8">
+                    {/* Visitor Counter - Left */}
+                    <div className="flex justify-center sm:justify-start">
                         <VisitorCounter />
                     </div>
 
-                    <div className="flex justify-center order-1 sm:order-2">
+                    {/* Theme Switcher - Center */}
+                    <div className="flex justify-center">
                         <ThemeSwitcher />
                     </div>
 
-                    <div className="flex justify-center sm:justify-end order-3">
+                    {/* Copyright - Right */}
+                    <div className="flex justify-center sm:justify-end">
                         <p className="text-xs text-muted-foreground">
-                            © {new Date().getFullYear()} Universal API Translator.
+                            © {new Date().getFullYear()} {siteConfig.name}.
                         </p>
                     </div>
                 </div>

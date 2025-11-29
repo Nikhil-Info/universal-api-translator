@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect, useState } from 'react'
-import { createClient } from '@/lib/supabase/client'
 import { getCountryCode } from '@/lib/country-codes'
 
 interface VisitorStats {
@@ -16,25 +15,12 @@ export function VisitorCounter() {
 
     useEffect(() => {
         const fetchVisitorStats = async () => {
-            const supabase = createClient()
-
             try {
-                const { data, error } = await supabase
-                    .from('visitor_stats')
-                    .select('*')
-                    .limit(1)
-                    .single()
-
-                if (error) {
-                    console.error('[v0] Error fetching visitor stats:', error.message)
-                    setStats({
-                        total_views: 1,
-                        city: 'Unknown',
-                        country_code: 'XX'
-                    })
-                    setLoading(false)
-                    return
+                const response = await fetch('/api/visitor')
+                if (!response.ok) {
+                    throw new Error('Failed to fetch stats')
                 }
+                const data = await response.json()
 
                 if (data) {
                     setStats({
@@ -44,7 +30,8 @@ export function VisitorCounter() {
                     })
                 }
             } catch (error) {
-                console.error('[v0] Error fetching visitor stats:', error)
+                // Silently fail for network errors to avoid console noise
+                console.warn('[v0] Failed to fetch visitor stats')
                 setStats({
                     total_views: 1,
                     city: 'Unknown',
@@ -77,7 +64,7 @@ export function VisitorCounter() {
     }
 
     return (
-        <span className="text-xs text-muted-foreground">
+        <span className="text-xs text-muted-foreground" role="status" aria-live="polite">
             Last visitor from {stats.city}, {countryDisplay} ({stats.total_views}
             {ordinalSuffix(stats.total_views)} view)
         </span>

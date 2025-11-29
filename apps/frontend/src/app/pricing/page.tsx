@@ -117,7 +117,7 @@ export default function PricingPage() {
                             Simple, Transparent Pricing
                         </h1>
                         <p className="text-xl text-muted-foreground">
-                            Choose the plan that's right for you. All plans include a 14-day free trial.
+                            Choose the plan that&apos;s right for you. All plans include a 14-day free trial.
                         </p>
                     </div>
 
@@ -182,7 +182,7 @@ export default function PricingPage() {
                             <div>
                                 <h3 className="font-semibold mb-2">What happens after my trial ends?</h3>
                                 <p className="text-sm text-muted-foreground">
-                                    You'll be automatically downgraded to the Free plan. You can upgrade anytime.
+                                    You&apos;ll be automatically downgraded to the Free plan. You can upgrade anytime.
                                 </p>
                             </div>
                         </div>

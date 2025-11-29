@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link"
 import * as React from "react"
 import { LiaGithubAlt } from "react-icons/lia"
@@ -18,31 +20,43 @@ export function GitHubLink() {
     )
 }
 
-async function StarsCount() {
-    try {
-        const data = await fetch("https://api.github.com/repos/shadcn-ui/ui", {
-            next: { revalidate: 86400 },
-        })
+function StarsCount() {
+    const [stars, setStars] = React.useState<string | null>(null)
 
-        if (!data.ok) {
-            return null
+    React.useEffect(() => {
+        async function fetchStars() {
+            try {
+                const data = await fetch("https://api.github.com/repos/Nikhil-Info/universal-api-translator")
+
+                if (!data.ok) {
+                    return
+                }
+
+                const json = await data.json()
+
+                const formattedCount =
+                    json.stargazers_count >= 1000
+                        ? json.stargazers_count % 1000 === 0
+                            ? `${Math.floor(json.stargazers_count / 1000)}k`
+                            : `${(json.stargazers_count / 1000).toFixed(1)}k`
+                        : json.stargazers_count.toLocaleString()
+
+                setStars(formattedCount.replace(".0k", "k"))
+            } catch (error) {
+                // Silently fail
+            }
         }
 
-        const json = await data.json()
+        fetchStars()
+    }, [])
 
-        const formattedCount =
-            json.stargazers_count >= 1000
-                ? json.stargazers_count % 1000 === 0
-                    ? `${Math.floor(json.stargazers_count / 1000)}k`
-                    : `${(json.stargazers_count / 1000).toFixed(1)}k`
-                : json.stargazers_count.toLocaleString()
-
-        return (
-            <span className="text-muted-foreground w-fit text-xs tabular-nums">
-                {formattedCount.replace(".0k", "k")}
-            </span>
-        )
-    } catch (error) {
-        return null
+    if (!stars) {
+        return <Skeleton className="h-4 w-8" />
     }
+
+    return (
+        <span className="text-muted-foreground w-fit text-xs tabular-nums">
+            {stars}
+        </span>
+    )
 }

@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation"
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
+import { FiCornerDownLeft } from "react-icons/fi";
+import { TbArrowLeftToArc } from "react-icons/tb";
 import { getPostBySlug } from "@/lib/blog"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
@@ -69,47 +71,51 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <div className="min-h-screen bg-background">
                 {/* Article Layout */}
                 <div className="container max-w-7xl pb-16">
+                    {/* Back Button */}
+                    <div className="mb-8 max-w-6xl mx-auto">
+                        <Link
+                            href="/blog"
+                            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background hover:bg-[#D2F583] transition-colors"
+                            aria-label="Back to Blog"
+                        >
+                            <TbArrowLeftToArc className="h-4 w-4" />
+                        </Link>
+                    </div>
+
+                    {/* Title - Centered */}
+                    <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-center">
+                        {post.title}
+                    </h1>
+
+                    {/* Meta Info: Date (Left) & Author (Right) - Centered Container */}
+                    <div className="max-w-3xl mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+                        <time className="text-sm text-muted-foreground">
+                            {new Date(post.date).toLocaleDateString("en-US", {
+                                weekday: "long",
+                                year: "numeric",
+                                month: "long",
+                                day: "numeric",
+                            })}
+                        </time>
+
+                        <div className="flex items-center gap-4">
+                            <div className="flex items-center gap-2">
+                                <span className="text-sm text-muted-foreground">Posted by</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <Avatar className="h-8 w-8">
+                                    <AvatarFallback className="text-xs">{authorInitials}</AvatarFallback>
+                                </Avatar>
+                                <span className="text-sm font-medium">{post.author}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <Separator className="mb-8 max-w-3xl mx-auto" />
+
                     <div className="grid grid-cols-1 lg:grid-cols-[1fr_250px] gap-12">
                         {/* Main Content */}
                         <article className="max-w-3xl mx-auto w-full">
-                            {/* Back Button & Date */}
-                            <div className="mb-8 flex flex-col gap-4">
-                                <Link
-                                    href="/blog"
-                                    className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background hover:bg-muted/50 transition-colors"
-                                    aria-label="Back to Blog"
-                                >
-                                    <ArrowLeft className="h-4 w-4" />
-                                </Link>
-                                <time className="text-sm text-muted-foreground">
-                                    {new Date(post.date).toLocaleDateString("en-US", {
-                                        weekday: "long",
-                                        year: "numeric",
-                                        month: "long",
-                                        day: "numeric",
-                                    })}
-                                </time>
-                            </div>
-
-                            {/* Title */}
-                            <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
-                                {post.title}
-                            </h1>
-
-                            {/* Author Info */}
-                            <div className="flex items-center gap-4 mb-8">
-                                <div className="flex items-center gap-2">
-                                    <span className="text-sm text-muted-foreground">Posted by</span>
-                                </div>
-                                <div className="flex items-center gap-2">
-                                    <Avatar className="h-8 w-8">
-                                        <AvatarFallback className="text-xs">{authorInitials}</AvatarFallback>
-                                    </Avatar>
-                                    <span className="text-sm font-medium">{post.author}</span>
-                                </div>
-                            </div>
-
-                            <Separator className="mb-8" />
 
                             {/* Article Content */}
                             <div className="prose prose-gray dark:prose-invert max-w-none">

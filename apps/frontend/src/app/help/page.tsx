@@ -92,7 +92,7 @@ export default function HelpPage() {
             <PageHeader
                 title="Help Center"
                 description="Find answers, troubleshooting guides, and support for Universal API Translator."
-                icon={<HelpCircle />}
+                icon={<HelpCircle className="fill-[#D2F583] stroke-1 text-neutral-800" />}
             >
                 <div className="max-w-xl mx-auto mt-8 relative">
                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
@@ -104,7 +104,7 @@ export default function HelpPage() {
                 </div>
             </PageHeader>
 
-            <div className="container max-w-6xl py-12 md:py-16">
+            <div className="container mx-auto max-w-6xl px-4 py-12 md:py-16">
                 <div className="space-y-16">
                     {/* Quick Links */}
                     <section className="grid gap-6 md:grid-cols-3">

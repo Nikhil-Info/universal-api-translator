@@ -13,6 +13,7 @@ import { CommandMenu } from "@/components/command-menu"
 import { LiaGithubAlt } from "react-icons/lia"
 import { CiCoffeeCup } from "react-icons/ci"
 import { links } from "@/lib/links"
+import { siteConfig } from "@/config/site"
 
 export function SiteHeader() {
     const pathname = usePathname()
@@ -80,10 +81,9 @@ export function SiteHeader() {
                     {/* Desktop Logo (Center - Absolute) */}
                     <div className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
                         <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-                            {/* Replace with your custom logo */}
                             <Image
-                                src="/logo/api-logo_1.png" // Update this path to your logo
-                                alt="Logo"
+                                src={siteConfig.logo.main}
+                                alt={siteConfig.name}
                                 width={32}
                                 height={32}
                                 className="h-8 w-auto"
@@ -118,11 +118,11 @@ export function SiteHeader() {
                 </div>
             </header>
 
-            {/* Mobile Menu Dropdown */}
+            {/* Mobile Menu Dropdown - Fixed positioning */}
             {isMobileMenuOpen && (
                 <div
                     className={cn(
-                        "absolute right-4 top-[calc(var(--header-height)+0.5rem)] w-64 rounded-md border bg-background shadow-lg transition-all duration-300 origin-top-right overflow-hidden z-50",
+                        "fixed right-4 top-[calc(var(--header-height)+0.5rem)] w-64 rounded-md border bg-background shadow-lg transition-all duration-300 origin-top-right overflow-hidden z-[100]",
                         isAnimating ? "opacity-100 scale-100" : "opacity-0 scale-95"
                     )}
                 >

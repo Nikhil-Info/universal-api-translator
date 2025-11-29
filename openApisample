@@ -1,0 +1,98 @@
+openapi: 3.0.3
+info:
+  title: Item Management API
+  version: 1.0.0
+  description: A simple API for managing items.
+servers:
+  - url: https://api.example.com/v1
+    description: Production server
+  - url: http://localhost:8080/v1
+    description: Local development server
+paths:
+  /items:
+    get:
+      summary: Get all items
+      description: Retrieves a list of all available items.
+      responses:
+        '200':
+          description: A list of items.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Item'
+    post:
+      summary: Create a new item
+      description: Adds a new item to the collection.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewItem'
+      responses:
+        '201':
+          description: Item created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+        '400':
+          description: Invalid request body.
+  /items/{itemId}:
+    get:
+      summary: Get an item by ID
+      description: Retrieves a single item by its unique ID.
+      parameters:
+        - name: itemId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: The unique identifier of the item.
+      responses:
+        '200':
+          description: The requested item.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+        '404':
+          description: Item not found.
+components:
+  schemas:
+    Item:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "a1b2c3d4-e5f6-7890-1234-567890abcdef"
+        name:
+          type: string
+          example: "Laptop"
+        description:
+          type: string
+          example: "A portable computer."
+        price:
+          type: number
+          format: float
+          example: 1200.00
+    NewItem:
+      type: object
+      required:
+        - name
+        - price
+      properties:
+        name:
+          type: string
+          example: "Monitor"
+        description:
+          type: string
+          example: "A display screen for a computer."
+        price:
+          type: number
+          format: float
+          example: 300.00

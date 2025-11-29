@@ -89,10 +89,10 @@ export default function TeamPage() {
             <PageHeader
                 title="Meet Our Team"
                 description="We are a diverse group of engineers, designers, and API enthusiasts passionate about making API integration seamless."
-                icon={<Users />}
+                icon={<Users className="fill-[#D2F583] stroke-1 text-neutral-800" />}
             />
 
-            <div className="container max-w-6xl py-12 md:py-16">
+            <div className="container mx-auto max-w-6xl px-4 py-12 md:py-16">
                 <div className="space-y-20">
                     {/* Team Grid */}
                     <section className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -184,7 +184,7 @@ export default function TeamPage() {
                         <div className="max-w-2xl mx-auto space-y-6">
                             <h2 className="text-3xl font-bold tracking-tight">Join Our Team</h2>
                             <p className="text-muted-foreground text-lg">
-                                We're always looking for talented individuals to join our mission. Check out our open positions and help us shape the future of API tools.
+                                We&apos;re always looking for talented individuals to join our mission. Check out our open positions and help us shape the future of API tools.
                             </p>
                             <div className="flex gap-4 justify-center">
                                 <Button size="lg">View Openings</Button>

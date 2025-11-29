@@ -21,10 +21,10 @@ export default function DocumentationPage() {
             <PageHeader
                 title="Documentation"
                 description="Everything you need to know about using Universal API Translator to convert, validate, and generate SDKs."
-                icon={<Book />}
+                icon={<Book className="fill-[#D2F583] stroke-1 text-neutral-800" />}
             />
 
-            <div className="container max-w-6xl py-12 md:py-16">
+            <div className="container mx-auto max-w-6xl px-4 py-12 md:py-16">
                 <div className="space-y-16">
                     {/* Quick Start */}
                     <section className="space-y-6">

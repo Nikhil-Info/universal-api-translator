@@ -24,6 +24,9 @@ export const links = {
     validator: "/validator",
     team: "/team",
     help: "/help",
+    support: "/support",
+    tutorials: "/tutorials",
+    careers: "/careers",
 }
 
 export const navLinks = [
@@ -38,8 +41,7 @@ export const footerLinks = [
         title: "Product",
         items: [
             { name: "Features", href: links.features },
-            { name: "Dashboard", href: links.dashboard },
-            { name: "Playground", href: "/playground" },
+            { name: "Free Convert", href: "/translate" },
             { name: "API Validator", href: links.validator },
         ],
     },
@@ -66,6 +68,7 @@ export const footerLinks = [
         title: "Resources",
         items: [
             { name: "Documentation", href: links.documentation },
+            { name: "Support", href: links.support },
             { name: "Community", href: links.community },
             { name: "Changelog", href: links.changelog },
             { name: "Help Center", href: links.help },

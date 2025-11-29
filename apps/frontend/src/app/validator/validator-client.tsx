@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { CheckCircle2, AlertTriangle, XCircle, Upload, FileCode, Shield, Zap } from "lucide-react"
+import { CheckCircle2, XCircle, Upload, FileCode, Shield, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { PageHeader } from "@/components/layout/page-header"
@@ -41,10 +41,10 @@ export function ValidatorClient() {
             <PageHeader
                 title="API Validator"
                 description="Ensure your API specifications are error-free, standards-compliant, and ready for production."
-                icon={<CheckCircle2 />}
+                icon={<CheckCircle2 className="fill-[#D2F583] stroke-1 text-neutral-800" />}
             />
 
-            <div className="container max-w-5xl py-12 md:py-16">
+            <div className="container mx-auto max-w-5xl px-4 py-12 md:py-16">
                 <div className="grid gap-8 lg:grid-cols-3">
                     {/* Main Validator Area */}
                     <div className="lg:col-span-2 space-y-8">

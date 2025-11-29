@@ -34,13 +34,13 @@ export const viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://universal-api-translator.com'),
+  metadataBase: new URL('https://translatio.vercel.app'),
   title: {
-    default: "Universal API Translator - AI-Powered API Conversion & SDK Generation",
-    template: "%s | Universal API Translator"
+    default: "Translatio - AI-Powered API Conversion & SDK Generation",
+    template: "%s | Translatio"
   },
   description: "Transform APIs seamlessly with AI. Convert between OpenAPI, GraphQL, SOAP, and gRPC. Auto-generate SDKs in Node, Python, Go, Java, C#. Type-safe, standards-compliant, CI/CD ready.",
-  applicationName: "Universal API Translator",
+  applicationName: "Translatio",
   keywords: [
     "API translator",
     "API converter",
@@ -59,9 +59,9 @@ export const metadata: Metadata = {
     "OpenAPI 3.1",
     "API automation"
   ],
-  authors: [{ name: "Universal API Translator Team" }],
-  creator: "Universal API Translator",
-  publisher: "Universal API Translator",
+  authors: [{ name: "Translatio Team" }],
+  creator: "Translatio",
+  publisher: "Translatio",
   alternates: {
     canonical: '/',
   },
@@ -70,21 +70,21 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://universal-api-translator.com",
-    title: "Universal API Translator - AI-Powered API Conversion",
+    title: "Translatio - AI-Powered API Conversion",
     description: "Transform APIs seamlessly with AI. Convert between OpenAPI, GraphQL, SOAP, and gRPC. Auto-generate SDKs in multiple languages.",
-    siteName: "Universal API Translator",
+    siteName: "Translatio",
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Universal API Translator - AI-Powered API Conversion',
+        alt: 'Translatio - AI-Powered API Conversion',
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Universal API Translator - AI-Powered API Conversion",
+    title: "Translatio - AI-Powered API Conversion",
     description: "Transform APIs seamlessly. Convert between OpenAPI, GraphQL, SOAP, gRPC. Auto-generate SDKs.",
     creator: "@universalapi",
     images: ['/og-image.png'],
@@ -118,7 +118,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn(inter.variable, geistMono.variable, "min-h-screen bg-background font-sans antialiased")}>
+      <head>
+        {/* Preconnect to external domains for faster loading */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
+
+        {/* Preload critical assets */}
+        <link rel="preload" href="/logo/api-logo_1.png" as="image" />
+      </head>
+      <body
+        suppressHydrationWarning
+        className={cn(
+          inter.variable,
+          geistMono.variable,
+          "min-h-screen bg-background font-sans antialiased"
+        )}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

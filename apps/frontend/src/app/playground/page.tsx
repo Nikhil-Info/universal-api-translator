@@ -118,7 +118,7 @@ export default function PlaygroundPage() {
                                         </CardTitle>
                                         <select
                                             value={sourceFormat}
-                                            onChange={(e) => setSourceFormat(e.target.value as any)}
+                                            onChange={(e) => setSourceFormat(e.target.value as "openapi" | "graphql" | "grpc")}
                                             className="px-3 py-1 rounded-md border border-border bg-background text-sm"
                                         >
                                             <option value="openapi">OpenAPI</option>
@@ -167,7 +167,7 @@ export default function PlaygroundPage() {
                                         </CardTitle>
                                         <select
                                             value={targetFormat}
-                                            onChange={(e) => setTargetFormat(e.target.value as any)}
+                                            onChange={(e) => setTargetFormat(e.target.value as "graphql" | "grpc" | "openapi")}
                                             className="px-3 py-1 rounded-md border border-border bg-background text-sm"
                                         >
                                             <option value="graphql">GraphQL</option>

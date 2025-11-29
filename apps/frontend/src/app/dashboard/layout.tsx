@@ -14,7 +14,7 @@ export default function DashboardLayout({
                     <div className="flex h-14 items-center border-b px-6">
                         <Link className="flex items-center gap-2 font-semibold" href="/">
                             <Code2 className="h-6 w-6" />
-                            <span>Universal API Translator</span>
+                            <span>Translatio</span>
                         </Link>
                     </div>
                     <div className="flex-1 overflow-auto py-2">

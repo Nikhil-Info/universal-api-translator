@@ -1,16 +1,22 @@
 import { Metadata } from "next"
+import { CenteredPageLayout } from "@/components/layout/centered-page-layout"
+import { Shield } from "lucide-react"
 
 export const metadata: Metadata = {
     title: "Privacy Policy",
-    description: "Privacy Policy for Universal API Translator.",
+    description: "Learn how we collect, use, and protect your personal information at Universal API Translator.",
 }
 
 export default function PrivacyPage() {
     return (
-        <div className="container max-w-3xl py-16 lg:py-24">
-            <h1 className="mb-8 text-4xl font-bold tracking-tight">Privacy Policy</h1>
+        <CenteredPageLayout
+            title="Privacy Policy"
+            description="Your privacy is important to us. This policy explains how we collect, use, and protect your information."
+            icon={Shield}
+            maxWidth="3xl"
+        >
             <div className="prose prose-gray dark:prose-invert max-w-none">
-                <p className="lead">Last updated: November 23, 2025</p>
+                <p className="lead text-center">Last updated: November 23, 2025</p>
 
                 <h2>1. Introduction</h2>
                 <p>
@@ -19,7 +25,7 @@ export default function PrivacyPage() {
 
                 <h2>2. Data We Collect</h2>
                 <p>
-                    We may collect, use, store and transfer different kinds of personal data about you which we have grouped together follows:
+                    We may collect, use, store and transfer different kinds of personal data about you which we have grouped together as follows:
                 </p>
                 <ul>
                     <li><strong>Identity Data</strong> includes first name, last name, username or similar identifier.</li>
@@ -41,7 +47,28 @@ export default function PrivacyPage() {
                 <p>
                     We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used or accessed in an unauthorized way, altered or disclosed.
                 </p>
+
+                <h2>5. Your Rights</h2>
+                <p>
+                    Under GDPR and CCPA, you have the right to:
+                </p>
+                <ul>
+                    <li>Access your personal data</li>
+                    <li>Correct inaccurate data</li>
+                    <li>Request deletion of your data</li>
+                    <li>Object to data processing</li>
+                    <li>Data portability</li>
+                    <li>Withdraw consent at any time</li>
+                </ul>
+
+                <h2>6. Contact Us</h2>
+                <p className="text-center">
+                    If you have questions about this privacy policy, contact us at:{" "}
+                    <a href="mailto:support@universal-api-translator.com" className="text-primary hover:underline">
+                        support@universal-api-translator.com
+                    </a>
+                </p>
             </div>
-        </div>
+        </CenteredPageLayout>
     )
 }

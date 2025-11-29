@@ -11,7 +11,7 @@ interface LikeButtonProps {
   initialLikes?: number
 }
 
-export function LikeButton({ postId, initialLikes = 0 }: LikeButtonProps) {
+export function LikeButton({ initialLikes = 0 }: LikeButtonProps) {
   const [likes, setLikes] = useState(initialLikes)
   const [isLiked, setIsLiked] = useState(false)
   const [isAnimating, setIsAnimating] = useState(false)

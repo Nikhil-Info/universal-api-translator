@@ -25,8 +25,8 @@ export function StructuredData({ type, data }: StructuredDataProps) {
 
 // Predefined structured data for common use cases
 export const organizationData = {
-    name: 'Universal API Translator',
-    url: 'https://universal-api-translator.com',
+    name: 'Translatio',
+    url: 'https://translatio.dev',
     logo: 'https://universal-api-translator.com/logo.png',
     description: 'AI-powered API conversion and SDK generation platform',
     sameAs: [
@@ -36,21 +36,21 @@ export const organizationData = {
     contactPoint: {
         '@type': 'ContactPoint',
         contactType: 'Customer Support',
-        email: 'support@universal-api-translator.com',
+        email: 'support@translatio.dev',
     },
 }
 
 export const websiteData = {
-    url: 'https://universal-api-translator.com',
-    name: 'Universal API Translator',
+    url: 'https://translatio.dev',
+    name: 'Translatio',
     description: 'Transform APIs seamlessly with AI. Convert between OpenAPI, GraphQL, SOAP, and gRPC.',
     publisher: {
         '@type': 'Organization',
-        name: 'Universal API Translator',
+        name: 'Translatio',
     },
     potentialAction: {
         '@type': 'SearchAction',
-        target: 'https://universal-api-translator.com/search?q={search_term_string}',
+        target: 'https://translatio.dev/search?q={search_term_string}',
         'query-input': 'required name=search_term_string',
     },
 }

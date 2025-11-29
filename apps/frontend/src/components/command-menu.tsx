@@ -277,8 +277,163 @@ function SearchResults({
             )
             : []
 
+    // Show navigation links when there's no search query
     if (!search.trim()) {
-        return null
+        return (
+            <>
+                <CommandGroup heading="Navigation">
+                    <CommandItem
+                        className="data-[selected=true]:bg-accent data-[selected=true]:text-accent-foreground h-9 rounded-md px-3 font-medium cursor-pointer"
+                        onSelect={() => {
+                            router.push("/")
+                            setOpen(false)
+                        }}
+                        onClick={() => {
+                            router.push("/")
+                            setOpen(false)
+                        }}
+                    >
+                        Home
+                    </CommandItem>
+                    <CommandItem
+                        className="data-[selected=true]:bg-accent data-[selected=true]:text-accent-foreground h-9 rounded-md px-3 font-medium cursor-pointer"
+                        onSelect={() => {
+                            router.push("/translate")
+                            setOpen(false)
+                        }}
+                        onClick={() => {
+                            router.push("/translate")
+                            setOpen(false)
+                        }}
+                    >
+                        Free API Translator
+                    </CommandItem>
+                    <CommandItem
+                        className="data-[selected=true]:bg-accent data-[selected=true]:text-accent-foreground h-9 rounded-md px-3 font-medium cursor-pointer"
+                        onSelect={() => {
+                            router.push("/validator")
+                            setOpen(false)
+                        }}
+                        onClick={() => {
+                            router.push("/validator")
+                            setOpen(false)
+                        }}
+                    >
+                        API Validator
+                    </CommandItem>
+                    <CommandItem
+                        className="data-[selected=true]:bg-accent data-[selected=true]:text-accent-foreground h-9 rounded-md px-3 font-medium cursor-pointer"
+                        onSelect={() => {
+                            router.push("/documentation")
+                            setOpen(false)
+                        }}
+                        onClick={() => {
+                            router.push("/documentation")
+                            setOpen(false)
+                        }}
+                    >
+                        Documentation
+                    </CommandItem>
+                </CommandGroup>
+
+                <CommandGroup heading="Resources">
+                    <CommandItem
+                        className="data-[selected=true]:bg-accent data-[selected=true]:text-accent-foreground h-9 rounded-md px-3 font-medium cursor-pointer"
+                        onSelect={() => {
+                            router.push("/blog")
+                            setOpen(false)
+                        }}
+                        onClick={() => {
+                            router.push("/blog")
+                            setOpen(false)
+                        }}
+                    >
+                        Blog
+                    </CommandItem>
+                    <CommandItem
+                        className="data-[selected=true]:bg-accent data-[selected=true]:text-accent-foreground h-9 rounded-md px-3 font-medium cursor-pointer"
+                        onSelect={() => {
+                            router.push("/help")
+                            setOpen(false)
+                        }}
+                        onClick={() => {
+                            router.push("/help")
+                            setOpen(false)
+                        }}
+                    >
+                        Help Center
+                    </CommandItem>
+                    <CommandItem
+                        className="data-[selected=true]:bg-accent data-[selected=true]:text-accent-foreground h-9 rounded-md px-3 font-medium cursor-pointer"
+                        onSelect={() => {
+                            router.push("/community")
+                            setOpen(false)
+                        }}
+                        onClick={() => {
+                            router.push("/community")
+                            setOpen(false)
+                        }}
+                    >
+                        Community
+                    </CommandItem>
+                    <CommandItem
+                        className="data-[selected=true]:bg-accent data-[selected=true]:text-accent-foreground h-9 rounded-md px-3 font-medium cursor-pointer"
+                        onSelect={() => {
+                            router.push("/changelog")
+                            setOpen(false)
+                        }}
+                        onClick={() => {
+                            router.push("/changelog")
+                            setOpen(false)
+                        }}
+                    >
+                        Changelog
+                    </CommandItem>
+                </CommandGroup>
+
+                <CommandGroup heading="Company">
+                    <CommandItem
+                        className="data-[selected=true]:bg-accent data-[selected=true]:text-accent-foreground h-9 rounded-md px-3 font-medium cursor-pointer"
+                        onSelect={() => {
+                            router.push("/about")
+                            setOpen(false)
+                        }}
+                        onClick={() => {
+                            router.push("/about")
+                            setOpen(false)
+                        }}
+                    >
+                        About
+                    </CommandItem>
+                    <CommandItem
+                        className="data-[selected=true]:bg-accent data-[selected=true]:text-accent-foreground h-9 rounded-md px-3 font-medium cursor-pointer"
+                        onSelect={() => {
+                            router.push("/team")
+                            setOpen(false)
+                        }}
+                        onClick={() => {
+                            router.push("/team")
+                            setOpen(false)
+                        }}
+                    >
+                        Team
+                    </CommandItem>
+                    <CommandItem
+                        className="data-[selected=true]:bg-accent data-[selected=true]:text-accent-foreground h-9 rounded-md px-3 font-medium cursor-pointer"
+                        onSelect={() => {
+                            router.push("/contact")
+                            setOpen(false)
+                        }}
+                        onClick={() => {
+                            router.push("/contact")
+                            setOpen(false)
+                        }}
+                    >
+                        Contact
+                    </CommandItem>
+                </CommandGroup>
+            </>
+        )
     }
 
     if (!query.data || query.data === "empty") {

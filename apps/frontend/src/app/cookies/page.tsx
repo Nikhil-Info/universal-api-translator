@@ -1,7 +1,7 @@
 import { Metadata } from "next"
 import { PageHeader } from "@/components/layout/page-header"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Shield, Settings, BarChart, Globe, Mail } from "lucide-react"
+import { Shield, Settings, BarChart, Globe, Mail, Cookie } from "lucide-react"
 
 export const metadata: Metadata = {
     title: "Cookie Policy - Universal API Translator",
@@ -19,9 +19,10 @@ export default function CookiePolicyPage() {
             <PageHeader
                 title="Cookie Policy"
                 description="Learn how Universal API Translator uses cookies to enhance your API conversion experience."
+                icon={<Cookie className="fill-[#D2F583] stroke-1 text-neutral-800" />}
             />
 
-            <div className="container max-w-4xl py-12 md:py-16">
+            <div className="container mx-auto max-w-4xl px-4 py-12 md:py-16">
                 <div className="space-y-8">
                     <div className="prose prose-gray dark:prose-invert max-w-none">
                         <p className="text-lg text-muted-foreground">

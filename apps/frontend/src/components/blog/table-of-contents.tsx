@@ -37,12 +37,13 @@ const TableOfContents = (props: TableOfContentsProps) => {
                         window.history.pushState(null, '', `#${details.value}`)
                     }
                 }}
-                className='text-sm'
+                className='text-sm gap-0'
             >
                 {toc.map((item) => (
                     <SegmentGroupItem
                         key={item.url}
                         value={item.url}
+                        className="py-1"
                         style={{
                             paddingLeft: `${(item.depth - 1) * 12 + 12}px`
                         }}

@@ -21,10 +21,10 @@ export default function CommunityPage() {
             <PageHeader
                 title="Community"
                 description="Join thousands of developers building the future of API integration. Connect, share, and learn."
-                icon={<Users />}
+                icon={<Users className="fill-[#D2F583] stroke-1 text-neutral-800" />}
             />
 
-            <div className="container max-w-6xl py-12 md:py-16">
+            <div className="container mx-auto max-w-6xl px-4 py-12 md:py-16">
                 <div className="space-y-16">
                     {/* Community Stats */}
                     <section className="grid gap-6 md:grid-cols-3">
