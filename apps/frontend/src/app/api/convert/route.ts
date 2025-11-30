@@ -1,10 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import OpenAI from 'openai'
 
-const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
-})
-
 export async function POST(request: NextRequest) {
     try {
         const { inputSpec, inputFormat, outputFormat } = await request.json()
@@ -18,10 +14,15 @@ export async function POST(request: NextRequest) {
 
         if (!process.env.OPENAI_API_KEY) {
             return NextResponse.json(
-                { error: 'OpenAI API key not configured. Please add OPENAI_API_KEY to your .env.local file.' },
+                { error: 'OpenAI API key not configured. Please add OPENAI_API_KEY to your environment variables.' },
                 { status: 500 }
             )
         }
+
+        // Instantiate OpenAI client at runtime, not at build time
+        const openai = new OpenAI({
+            apiKey: process.env.OPENAI_API_KEY,
+        })
 
         const formatNames: Record<string, string> = {
             openapi: 'OpenAPI 3.0',
